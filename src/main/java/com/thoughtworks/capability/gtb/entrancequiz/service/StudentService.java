@@ -2,6 +2,7 @@ package com.thoughtworks.capability.gtb.entrancequiz.service;
 
 import com.thoughtworks.capability.gtb.entrancequiz.pojo.Student;
 import com.thoughtworks.capability.gtb.entrancequiz.pojo.StudentTeam;
+import com.thoughtworks.capability.gtb.entrancequiz.pojo.request.StudentRequest;
 import com.thoughtworks.capability.gtb.entrancequiz.repository.StudentRepository;
 import com.thoughtworks.capability.gtb.entrancequiz.repository.StudentTeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,9 @@ public class StudentService {
 
     public List<StudentTeam> getStudentTeamList() {
         return studentTeamRepository.findAll();
+    }
+
+    public void addStudent(StudentRequest student) {
+        studentRepository.addNewStudent(student.getStudentName());
     }
 }
