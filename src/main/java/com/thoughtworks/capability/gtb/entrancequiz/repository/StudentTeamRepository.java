@@ -38,7 +38,7 @@ public class StudentTeamRepository {
     private void initStudentTeamList() {
         this.studentTeamList =  new ArrayList<>();
         for (int i = 0; i < BASE_TEAM_NUM; i++) {
-            studentTeamList.add(new StudentTeam(studentTeamIncId++));
+            studentTeamList.add(new StudentTeam(i+1));
         }
     }
 
