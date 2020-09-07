@@ -3,6 +3,7 @@ package com.thoughtworks.capability.gtb.entrancequiz.controller;
 import com.thoughtworks.capability.gtb.entrancequiz.pojo.Student;
 import com.thoughtworks.capability.gtb.entrancequiz.pojo.request.StudentRequest;
 import com.thoughtworks.capability.gtb.entrancequiz.pojo.StudentTeam;
+import com.thoughtworks.capability.gtb.entrancequiz.pojo.request.UpdateTeamRequest;
 import com.thoughtworks.capability.gtb.entrancequiz.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,8 +38,14 @@ public class StudentController {
     }
 
     @PostMapping(path = "/student")
-    public ResponseEntity addStudent(@RequestBody StudentRequest student){
-        studentService.addStudent(student);
+    public ResponseEntity addStudent(@RequestBody StudentRequest request){
+        studentService.addStudent(request);
+        return ResponseEntity.status(HttpStatus.OK).body("成功添加");
+    }
+
+    @PostMapping(path = "/team")
+    public ResponseEntity updateTeamName(@RequestBody UpdateTeamRequest request){
+        studentService.updateTeamName(request);
         return ResponseEntity.status(HttpStatus.OK).body("成功添加");
     }
 }
