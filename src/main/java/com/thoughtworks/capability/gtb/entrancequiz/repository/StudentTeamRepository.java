@@ -18,7 +18,6 @@ public class StudentTeamRepository {
     private List<StudentTeam> studentTeamList;
 
     public StudentTeamRepository(){
-        this.studentTeamList = new ArrayList<>();
         initStudentTeamList();
     }
 
@@ -37,9 +36,14 @@ public class StudentTeamRepository {
     }
 
     private void initStudentTeamList() {
+        this.studentTeamList =  new ArrayList<>();
         for (int i = 0; i < BASE_TEAM_NUM; i++) {
             studentTeamList.add(new StudentTeam(studentTeamIncId++));
         }
     }
 
+    public List<StudentTeam> getNewTeamList() {
+        initStudentTeamList();
+        return this.studentTeamList;
+    }
 }

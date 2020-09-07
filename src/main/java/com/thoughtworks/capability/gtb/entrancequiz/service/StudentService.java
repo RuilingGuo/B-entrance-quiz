@@ -32,7 +32,7 @@ public class StudentService {
         int randomStudentIndex = 0;
         Random random = new Random();
         List<Student> studentList =  studentRepository.findAll();
-        List<StudentTeam> teamList = studentTeamRepository.findAll();
+        List<StudentTeam> teamList = studentTeamRepository.getNewTeamList();
         int iterationNum = studentList.size();
         for(int i = 0 ; i< iterationNum ;i++){
             randomStudentIndex = random.nextInt(studentList.size());
