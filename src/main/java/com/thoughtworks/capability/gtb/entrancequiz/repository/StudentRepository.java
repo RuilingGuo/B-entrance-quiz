@@ -10,23 +10,23 @@ import java.util.List;
 
 @Repository
 public class StudentRepository {
+    private static Integer studentIncId =1;
     private List<Student> studentList;
-    private Integer studentIncId;
 
 
     public StudentRepository() {
         this.studentList = new ArrayList<>();
-        this.studentIncId = 1;
         initStudentList();
     }
 
-    public List<Student> findAllStudents() {
+    public List<Student> findAll() {
         return this.studentList;
     }
 
     public void addNewStudent(String studentName) {
         this.studentList.add(new Student(studentIncId++, studentName));
     }
+
 
     private void initStudentList() {
         addNewStudent("沈乐棋");
