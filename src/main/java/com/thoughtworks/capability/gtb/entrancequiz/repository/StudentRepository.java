@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -20,7 +22,9 @@ public class StudentRepository {
     }
 
     public List<Student> findAll() {
-        return this.studentList;
+        List<Student> copyList = new ArrayList<>(Arrays.asList(new Student[studentList.size()]));
+        Collections.copy(copyList, studentList);
+        return copyList;
     }
 
     public void addNewStudent(String studentName) {

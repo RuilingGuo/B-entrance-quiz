@@ -1,9 +1,12 @@
 package com.thoughtworks.capability.gtb.entrancequiz.repository;
 
+import com.thoughtworks.capability.gtb.entrancequiz.pojo.Student;
 import com.thoughtworks.capability.gtb.entrancequiz.pojo.StudentTeam;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -20,7 +23,9 @@ public class StudentTeamRepository {
     }
 
     public List<StudentTeam> findAll(){
-        return this.studentTeamList;
+        List<StudentTeam> copyList = new ArrayList<>(Arrays.asList(new StudentTeam[studentTeamList.size()]));
+        Collections.copy(copyList, studentTeamList);
+        return copyList;
     }
 
     public void save(List<StudentTeam> teamList){
