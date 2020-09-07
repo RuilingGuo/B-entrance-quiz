@@ -38,12 +38,18 @@ public class StudentTeamRepository {
     private void initStudentTeamList() {
         this.studentTeamList =  new ArrayList<>();
         for (int i = 0; i < BASE_TEAM_NUM; i++) {
-            studentTeamList.add(new StudentTeam(i+1));
+            studentTeamList.add(new StudentTeam(studentTeamIncId++,i+1));
         }
     }
 
     public List<StudentTeam> getNewTeamList() {
-        initStudentTeamList();
+        resetStudentTeamMember();
         return this.studentTeamList;
+    }
+
+    private void resetStudentTeamMember() {
+        this.studentTeamList.forEach(team -> {
+            team.setStudentList(new ArrayList<>());
+        });
     }
 }

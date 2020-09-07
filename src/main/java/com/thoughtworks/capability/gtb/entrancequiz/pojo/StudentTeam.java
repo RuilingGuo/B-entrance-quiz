@@ -13,9 +13,9 @@ public class StudentTeam {
     private String name;
     private List<Student> studentList;
 
-    public StudentTeam(Integer id) {
+    public StudentTeam(Integer id,Integer teamIndex) {
         this.id = id;
-        this.name ="Team "+id;
+        this.name ="Team "+teamIndex;
         this.studentList = new ArrayList<>();
     }
 

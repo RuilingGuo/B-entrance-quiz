@@ -7,6 +7,7 @@ import com.thoughtworks.capability.gtb.entrancequiz.repository.StudentTeamReposi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -43,6 +44,7 @@ public class StudentService {
                 teamIndex = 0;
             }
         }
+        teamList.forEach(team -> team.getStudentList().sort(Comparator.comparingInt(Student::getId)));
         studentTeamRepository.save(teamList);
         return studentTeamRepository.findAll();
     }
