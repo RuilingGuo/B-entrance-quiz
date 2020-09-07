@@ -5,10 +5,7 @@ import com.thoughtworks.capability.gtb.entrancequiz.pojo.StudentTeam;
 import com.thoughtworks.capability.gtb.entrancequiz.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +26,10 @@ public class StudentController {
     @GetMapping(path = "/teams")
     public List<StudentTeam> getTeamList(){
         return studentService.getStudentTeamList();
+    }
+
+    @PostMapping(path = "/teams")
+    public List<StudentTeam> groupTeamList(){
+        return studentService.groupStudentTeamList();
     }
 }

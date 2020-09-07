@@ -24,7 +24,7 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public List<StudentTeam> getStudentTeamList() {
+    public List<StudentTeam> groupStudentTeamList() {
         return studentsGroupByTeamNum();
     }
 
@@ -50,5 +50,7 @@ public class StudentService {
     }
 
 
-
+    public List<StudentTeam> getStudentTeamList() {
+        return studentTeamRepository.findAll();
+    }
 }
